@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Document Copy 2</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+
+        <!-- <div class="alert-box">
+            알림창
+            <button onclick="buttonAlert('none')">닫기</button>
+        </div>
+
+        <button onclick="buttonAlert('block')">버튼</button>
+        
+
+        <script>
+
+            function buttonAlert(parameter) {
+                document.getElementsByClassName('alert-box')[0].style.display = parameter;
+            }
+
+        </script> -->
+
+
+
+        <!-- <h1>First Homework</h1>
+
+        <div class="alert-box">
+            <p>아이디를 입력하세요</p>
+            <button onclick="btnClose(1)">닫기</button>
+        </div>
+
+        <div class="alert-box">
+            <p>비밀번호를 입력하세요</p>
+            <button onclick="btnClose(2)">닫기</button>
+        </div>
+
+        <button onclick="btnAlert(1)">버튼1</button>
+        <button onclick="btnAlert(2)">버튼2</button>
+
+        <script>
+            function btnAlert(self) {
+                document.getElementsByClassName('alert-box')[self].style.display = 'block';
+            }
+
+            function btnClose(self) {
+                document.getElementsByClassName('alert-box')[self].style.display = 'none';
+            }
+        </script>
+
+
+
+        <h1>Second Homework</h1>
+
+        <div class="alert-box">
+            <p id="content1">아이디를 입력하세요</p>
+            <button onclick="btnClose(3)">닫기</button>
+        </div>
+
+        <button onclick="btnIdAlert()">Id버튼</button>
+        <button onclick="btnPwAlert()">Pw버튼</button>
+
+        <script>
+            function btnIdAlert() {
+                document.getElementsByClassName('alert-box')[3].style.display = 'block';
+                document.getElementById('content1').innerHTML = '아이디를 입력하세요';
+            }
+
+            function btnPwAlert() {
+                document.getElementsByClassName('alert-box')[3].style.display = 'block';
+                document.getElementById('content1').innerHTML = '비밀번호를 입력하세요';
+            }
+
+            function btnClose(self) {
+                document.getElementsByClassName('alert-box')[self].style.display = 'none';
+            }
+        </script> -->
+
+
+
+        <h1>addEventListener()</h1>
+
+        <button id="open">열기</button>
+
+        <div class="alert">
+            <p>아이디를 입력하세요</p>
+            <button id="close">닫기</button>
+        </div>
+
+        <script>
+
+            document.getElementById('open').addEventListener('click', function() {
+                document.getElementsByClassName('alert')[0].style.display = 'block';
+            }); // 파라미터 안에 쓰인 함수를 콜백함수라고 부른다.
+
+            document.getElementById('close').addEventListener('click', function() {
+                document.getElementsByClassName('alert')[0].style.display = 'none';
+            });
+
+        </script>
+
+    </body>
+</html>
