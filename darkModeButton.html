@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="main.css" rel="stylesheet">
+    <title>변수문법과 다크모드 버튼 만들기</title>
+  </head>
+
+  <body class="body">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Navbar</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>  -->
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">JSShop</span>
+            <span class="badge bg-dark" id="badge-darkmode">Dark 🔄</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    
+    <script>
+
+      // badge 클릭횟수가 홀수면 내부 글자를 Light로 변경
+      // badge 클릭횟수가 짝수면 내부 글자를 Dark로 변경
+
+      var count = 0;
+      document.querySelector('#badge-darkmode').addEventListener('click', function() {
+        // count += 1;
+        // count++;
+        count = count + 1;
+
+        // console.log(count);
+
+        if (count % 2 != 0) {
+          document.querySelector('#badge-darkmode').innerHTML = 'Light 🔄';
+          document.querySelector('.body').classList.add('dark');
+        } else if (count % 2 == 0) {
+          document.querySelector('#badge-darkmode').innerHTML = 'Dark 🔄';
+          document.querySelector('.body').classList.remove('dark');
+        }
+      });
+      
+      // <선생님 코드>
+      // $('.badge').on('click', function() {
+      //   count = count + 1;
+      //   if (count % 2 == 1) {
+      //     $('.badge').html('Light');
+      //   } else {
+      //     $('.badge').html('Dark');
+      //   }
+      // });
+
+      // 홀수 => count % 2 == 1 이것도 가능하다
+
+      // var 변수명 = 넣을자료;
+
+      // 변수에 +1 하는 방법
+      // 변수++
+      // 변수 += 1
+      // 변수 = 변수 + 1
+
+      var age = 20;
+      console.log(age);
+
+      // var name = 'kim';
+      // console.log(name);
+
+      // 변수 쓰는 이유
+      // 1. 길고 복잡한 자료들 저장가능
+      // 2. 특정 값을 기억하게 만들고 싶을 때 사용(일종의 기억저장소)
+
+      // 변수 특징
+      // 1. 모든 자료 다 넣을 수 있음
+
+
+
+      // <변수의 선언, 할당, 범위>
+      // var 선언 = 할당;
+
+      // 선언과 할당은 따로 할 수 있다
+      // var 선언;
+      // 선언 = 할당;
+
+      // 재할당도 가능하다
+      // var 선언 = 할당;
+      // 선언 = 재할당;
+
+      function func() {
+        var name = 'kim';
+        console.log(name);
+        // 함수 안에서 선언한 변수는 함수 안에서만 사용 가능
+        // 함수 바깥에서 선언한 변수는 함수 안에서도 사용 가능
+      }
+
+      var name1 = 'kim';
+
+      let name2 = 'kim';
+      // let은 재선언이 불가능하다
+      // 범위는 선언된 {} 안 (함수 안에서 사용가능 한 var와는 다름0)
+
+      const name3 = 'kim';
+      // const는 재선언이 불가능하다
+      // const는 재할당도 불가능하다
+      // 범위는 let과 같다
+    </script>
+
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <script>
+      document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function() {
+          document.querySelectorAll('.list-group')[0].classList.toggle('show');
+      });
+    </script>
+
+    <div class="black-bg">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form action="success.html">
+              <!-- form action="url.com" => 해당 url로 이동 -->
+                <div class="my-3">
+                  <input type="text" class="form-control input-login" id="email">
+                 </div>
+                 <div class="my-3">
+                   <input type="password" class="form-control input-login" id="password">
+                 </div>
+                 <button type="submit" class="btn btn-primary" id="submit-login">전송</button>
+                 <button type="button" class="btn btn-danger" id="close">닫기</button>
+              </form>
+        </div>
+    </div>
+
+    <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <script>
+        $('#login').on('click', function() {
+          $('.black-bg').addClass('show-modal');
+        });
+  
+        $('#close').on('click', function() {
+          $('.black-bg').removeClass('show-modal');
+        });
+
+        // document.querySelector('#submit-login').addEventListener('click', function() {
+        //   if (document.querySelectorAll('.input-login')[0].value == "") {
+        //     alert('아이디를 입력하세요.');
+        //   }
+        // });
+
+
+        $('form').on('submit', function(e) {
+          if (document.getElementById('email').value == '' || document.getElementById('password').value == '') {
+            e.preventDefault(); // 동작 정지명령
+            alert('아이디, 비밀번호를 입력해주세요.');
+          }
+          if (document.getElementById('password').value.length < 6) {
+            e.preventDefault();
+            alert('비밀번호는 6자 이상이어야 합니다.');
+          }
+        });
+
+        // 전송버튼을 누르면 => addEventListener
+        // 인풋에 입력한 값이 공백이면 => if
+        // 얼럿창 띄우기 => alert
+
+        // 1 != 1  1과 1은 다르다 라는 표현. => false로 나옴.
+        // 1 === '1' 엄격한 비교(타입까지 같아야 같다고 함) => false로 나옴.
+        // && and 둘 다 참이어야 전체가 참이다.
+        // || or  둘 중 하나가 참이면 전체가 참이다.
+        // ! not
+    </script>
+
+
+    <!-- <script>
+
+      document.getElementById('email').addEventListener('change', function() {
+        console.log('Hi');
+      }); // 'input'과 'change'  change는 input에 입력하고 포커스를 잃을 때 발생.
+
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>
